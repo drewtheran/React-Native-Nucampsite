@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Text, View } from 'react-native';
 import { Card } from 'react-native-elements';
-import { CAMPSITES } from '../shared/campsites';
 
 function RenderCampsite({campsite}) {
     if (campsite) {
@@ -18,23 +17,10 @@ function RenderCampsite({campsite}) {
     return <View />;
 }
 
-class CampsiteInfo extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          campsites: CAMPSITES
-        };
-    }
+function CampsiteInfo(props) {
+    return <RenderCampsite campsite={props.campsite} />
 
-    static navigationOptions = {
-        title: 'Campsite Information'
-    };
-
-    render() {
-        const campsiteId = this.props.navigation.getParam('campsiteId');
-        const campsite = this.state.campsites.filter(campsite => campsite.id === campsiteId)[0];
-        return <RenderCampsite campsite={campsite} />;
-    }
+    
 }
 
 export default CampsiteInfo;
