@@ -122,7 +122,8 @@ export const fetchPartners = () => dispatch => {
             error => {
                 const errMess = new Error(error.message);
                 throw errMess;
-            })
+            }
+        )
         .then(response => response.json())
         .then(partners => dispatch(addPartners(partners)))
         .catch(error => dispatch(partnersFailed(error.message)));
