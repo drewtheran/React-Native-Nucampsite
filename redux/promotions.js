@@ -2,7 +2,7 @@ import * as ActionTypes from './ActionTypes';
 
 export const promotions = (state = { isLoading: true,
                                         errMess: null,
-                                        promotions: []}, action) => {
+                                        promotions: [] }, action) => {
     switch (action.type) {
         case ActionTypes.ADD_PROMOTIONS:
             return {...state, isLoading: false, errMess: null, promotions: action.payload};
